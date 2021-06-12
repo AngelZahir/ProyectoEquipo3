@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Medico;
 use App\Models\Receta;
 use App\Models\Paciente;
 use App\Models\Direccion;
@@ -42,26 +43,36 @@ class PacienteController extends Controller
     public function store(StorePaciente $request, StoreDireccion $request2)
     {
         $direccion = Direccion::create($request2->validated());
+        
+        $medico = Medico::find($request['medicoId']);
+        
+        if($medico){
+            
+            if($direccion){
 
-        if($direccion){
-
-            Paciente::create([
-
-                'medicoId' => $request['medicoId'],
-                'direccionId' => $direccion->id,
-                'nombre' => $request['nombre'],
-                'ap_paterno' => $request['ap_paterno'],
-                'ap_materno' => $request['ap_materno'],
-                'edad' => $request['edad']
-
-            ]);
-
-            $mensaje = 'Paciente registrado correctamente';
+                Paciente::create([
+    
+                    'medicoId' => $medico->id,
+                    'direccionId' => $direccion->id,
+                    'nombre' => $request['nombre'],
+                    'ap_paterno' => $request['ap_paterno'],
+                    'ap_materno' => $request['ap_materno'],
+                    'edad' => $request['edad']
+    
+                ]);
+    
+                $mensaje = 'Paciente registrado correctamente';
+    
+            }else{
+    
+                $mensaje = 'ERROR al ingresar al paciente';
+            }
 
         }else{
 
-            $mensaje = 'ERROR al ingresar al paciente';
+            $mensaje = 'ERROR el medico no existe, registralo en la pestaña medicos';
         }
+        
         
         return back()->with('status', $mensaje);
     }
