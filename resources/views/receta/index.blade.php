@@ -2,7 +2,7 @@
 
 @section('content')
 
-<a href="{{route('receta.create', $paciente->id)}}" class="btn btn-success mt-3 mb-3">Agregar receta</a>
+<a href="{{route('receta.create')}}" class="btn btn-success mt-3 mb-3">Agregar receta</a>
 
         <table class="table table-hover">
             <thead>

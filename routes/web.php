@@ -23,13 +23,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
 Route::resource('paciente', PacienteController::class);
 
 Route::resource('direccion', DireccionController::class);
 
 Route::resource('medico', MedicoController::class);
-
 
 Route::resource('receta', RecetaController::class);
 

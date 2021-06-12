@@ -9,9 +9,22 @@ use App\Http\Requests\StoreRecetaRequest;
 
 class RecetaController extends Controller
 {
+    // protected Paciente $paciente;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct(Paciente $paciente)
+    {
+        // $this->paciente = $paciente;
+        // $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
-     *@param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -23,9 +36,10 @@ class RecetaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Paciente $paciente)
+    public function create()
     {
-        return view('receta.receta', ['receta' => new Receta(), 'paciente' => $paciente]);
+
+        return view('receta.receta', ['receta' => new Receta()]);
     }
 
     /**
@@ -34,11 +48,11 @@ class RecetaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRecetaRequest $request, Paciente $paciente)
+    public function store(StoreRecetaRequest $request)
     {
         Receta::create([
 
-            'pacienteId' => $paciente->id,
+            'pacienteId' => $this->paciente->id,
             'padecimineto' => $request['padecimineto'],
             'medicamento' => $request['medicamento'],
             'fecha_inicio_tratamiento' => $request['fecha_inicio_tratamiento']
@@ -60,12 +74,7 @@ class RecetaController extends Controller
      */
     public function show($id)
     {
-        $paciente = Paciente::findOrFail($id);
-        $recetas = Receta::where('PacienteId', $paciente->id)
-        ->orderBy('created_at', 'desc')
-        ->paginate(10);
-
-        return view('receta.index', ['recetas' => $recetas, 'paciente' => $paciente]);
+        
 
     }
 

@@ -4,7 +4,7 @@
 
         @include('partials/validation-errors')
 
-        <form action="{{ route('receta.store', $paciente) }}" method="post">
+        <form action="{{ route('receta.store') }}" method="post">
 
                 @include('receta._form')
         </form>

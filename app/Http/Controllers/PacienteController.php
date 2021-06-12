@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Receta;
 use App\Models\Paciente;
 use App\Models\Direccion;
 use Illuminate\Http\Request;
@@ -77,6 +78,7 @@ class PacienteController extends Controller
         $direccion = Direccion::findOrFail($paciente->direccionId);
 
         return view('paciente.show', ['paciente' => $paciente, 'direccion' => $direccion]);
+
     }
 
     /**
@@ -124,4 +126,15 @@ class PacienteController extends Controller
 
         return back()->with('status', 'Paciente borrado correctamente');
     }
+
+    // public function mostrarRecetas($id){
+
+    //     $paciente = Paciente::findOrFail($id);
+
+    //     $recetas = Receta::where('PacienteId', $paciente->id)
+    //     ->orderBy('created_at', 'desc')
+    //     ->paginate(10);
+
+    //     return view('receta.index', ['paciente' => $paciente, 'recetas' => $recetas]);
+    // }
 }
