@@ -11,8 +11,7 @@
                 <th scope="col">Medico ID</th>
                 <th scope="col">Direccion ID</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Apellido P</th>
-                <th scope="col">Apellido M</th>
+                <th scope="col">Apellidos</th>
                 <th scope="col">Edad</th>
                 <th scope="col">Creado</th>
                 <th scope="col">Actualizado</th>
@@ -26,8 +25,7 @@
                     <td>{{$paciente->medicoId}}</td>
                     <td>{{$paciente->direccionId}}</td>
                     <td>{{$paciente->nombre}}</td>
-                    <td>{{$paciente->ap_paterno}}</td>
-                    <td>{{$paciente->ap_materno}}</td>
+                    <td>{{$paciente->ap_paterno}} {{$paciente->ap_materno}}</td>
                     <td>{{$paciente->edad}}</td>
                     <td>{{$paciente->created_at->format('d-m-Y')}}</td>
                     <td>{{$paciente->updated_at->format('d-m-Y')}}</td>

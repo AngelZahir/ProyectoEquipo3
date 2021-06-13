@@ -81,6 +81,8 @@ class PacienteController extends Controller
 
         }else{
 
+            $direccion->delete();
+            
             $mensaje = 'ERROR el medico no existe, registralo en la pestaña medicos';
         }
         
