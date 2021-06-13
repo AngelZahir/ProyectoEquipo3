@@ -142,9 +142,12 @@ class PacienteController extends Controller
     public function destroy(Paciente $paciente)
     {
         $direccion = Direccion::findOrFail($paciente->direccionId);
+        $recetas = Receta::where('PacienteId', $paciente->id);
 
+        $recetas->delete();
         $paciente->delete();
         $direccion->delete();
+        
 
         return back()->with('status', 'Paciente borrado correctamente');
     }
