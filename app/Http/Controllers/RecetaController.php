@@ -26,8 +26,16 @@ class RecetaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, $id)
     {
+        session(['pacienteId' => $id]);
+        $paciente = Paciente::findOrFail($id);
+
+        $recetas = Receta::where('PacienteId', $paciente->id)
+        ->orderBy('created_at', 'desc')
+        ->paginate(10);
+        
+        return view('receta.index', ['recetas' => $recetas]);
     }
 
     /**
@@ -63,7 +71,6 @@ class RecetaController extends Controller
         $mensaje = 'Receta registrado correctamente';
 
         
-        
         return back()->with('status', $mensaje);
     }
 
@@ -75,24 +82,9 @@ class RecetaController extends Controller
      */
     public function show($id)
     {
-        if(session()->has('pacienteId')){
+        $receta = Receta::findOrFail($id);
 
-            session(['pacienteId' => $id]);
-            $paciente = Paciente::findOrFail($id);
-
-            $recetas = Receta::where('PacienteId', $paciente->id)
-            ->orderBy('created_at', 'desc')
-            ->paginate(10);
-        
-            return view('receta.index', ['recetas' => $recetas]);
-
-        }else{
-
-            dd($id);
-            $receta = Receta::findOrFail($id);
-
-            return view('receta.show', ['receta' => $receta]);
-        }       
+        return view('receta.show', ['receta' => $receta]);
 
     }
 

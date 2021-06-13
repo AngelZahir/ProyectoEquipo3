@@ -29,6 +29,8 @@ Route::resource('direccion', DireccionController::class);
 
 Route::resource('medico', MedicoController::class);
 
+Route::get('receta/mostrar/{id}', [RecetaController::class, 'index'])->name('mostrar');
+
 Route::resource('receta', RecetaController::class);
 
 
