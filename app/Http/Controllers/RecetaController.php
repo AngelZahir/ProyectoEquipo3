@@ -9,14 +9,13 @@ use App\Http\Requests\StoreRecetaRequest;
 
 class RecetaController extends Controller
 {
-    // protected Paciente $paciente;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(Paciente $paciente)
+    public function __construct()
     {
         // $this->paciente = $paciente;
         // $this->middleware('auth');
@@ -28,7 +27,7 @@ class RecetaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
     }
 
     /**
@@ -50,9 +49,11 @@ class RecetaController extends Controller
      */
     public function store(StoreRecetaRequest $request)
     {
+        $pacienteId = session('pacienteId');
+
         Receta::create([
 
-            'pacienteId' => $this->paciente->id,
+            'pacienteId' => $pacienteId,
             'padecimineto' => $request['padecimineto'],
             'medicamento' => $request['medicamento'],
             'fecha_inicio_tratamiento' => $request['fecha_inicio_tratamiento']
@@ -74,7 +75,24 @@ class RecetaController extends Controller
      */
     public function show($id)
     {
+        if(session()->has('pacienteId')){
+
+            session(['pacienteId' => $id]);
+            $paciente = Paciente::findOrFail($id);
+
+            $recetas = Receta::where('PacienteId', $paciente->id)
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
         
+            return view('receta.index', ['recetas' => $recetas]);
+
+        }else{
+
+            dd($id);
+            $receta = Receta::findOrFail($id);
+
+            return view('receta.show', ['receta' => $receta]);
+        }       
 
     }
 
@@ -86,7 +104,9 @@ class RecetaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $receta = Receta::findOrFail($id);
+
+        return view('receta.edit', ['receta' => $receta]);
     }
 
     /**
@@ -96,9 +116,11 @@ class RecetaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreRecetaRequest $request, Receta $receta)
     {
-        //
+        $receta->update($request->validated());
+
+        return back()->with('status', 'Receta modificada correctamente');
     }
 
     /**
@@ -107,8 +129,10 @@ class RecetaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Receta $receta)
     {
-        //
+        $receta->delete();
+
+        return back()->with('status', 'Receta borrada correctamente');
     }
 }

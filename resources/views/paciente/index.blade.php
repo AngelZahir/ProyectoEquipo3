@@ -33,7 +33,7 @@
                     <td>{{$paciente->updated_at->format('d-m-Y')}}</td>
                     <td><a href="{{ route('paciente.show', $paciente->id) }}" class="btn btn-primary">Ver</a></td>
                     <td><a href="{{ route('paciente.edit', $paciente->id) }}" class="btn btn-primary">Editar</a></td>
-                    <td><a href="{{ route('receta.index', $paciente->id) }}" class="btn btn-primary">Recetas</a></td>
+                    <td><a href="{{ route('receta.show', $paciente->id) }}" class="btn btn-primary">Recetas</a></td>
                     <td>
                       <button data-toggle="modal" data-target="#deleteModal" data-id="{{ $paciente->id }}" class="btn btn-danger" type="submit">Eliminar</button>
                     </td>

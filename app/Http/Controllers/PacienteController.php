@@ -137,15 +137,4 @@ class PacienteController extends Controller
 
         return back()->with('status', 'Paciente borrado correctamente');
     }
-
-    // public function mostrarRecetas($id){
-
-    //     $paciente = Paciente::findOrFail($id);
-
-    //     $recetas = Receta::where('PacienteId', $paciente->id)
-    //     ->orderBy('created_at', 'desc')
-    //     ->paginate(10);
-
-    //     return view('receta.index', ['paciente' => $paciente, 'recetas' => $recetas]);
-    // }
 }
