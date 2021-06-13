@@ -15,7 +15,7 @@ class CreatePacientesMigration extends Migration
     {
         Schema::create('pacientes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('medicoId');
+            $table->unsignedBigInteger('medicoId')->nullable();
             $table->foreign('medicoId')->references('id')->on('medicos');
             $table->unsignedBigInteger('direccionId');
             $table->foreign('direccionId')->references('id')->on('direcciones');

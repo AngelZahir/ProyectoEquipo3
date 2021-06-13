@@ -17,6 +17,7 @@
                     {{ __('You are logged in!') }}
                 </div>
             </div>
+            <td><a href="{{ route('paciente.index')}}" class="btn btn-primary mt-2">Continuar</a></td>
         </div>
     </div>
 </div>

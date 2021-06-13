@@ -24,7 +24,7 @@ class StorePaciente extends FormRequest
     public function rules()
     {
         return [
-            'medicoId' => 'required | min:1 | max:10',
+            'medicoId' => '',
             'direccionId' => '',
             'nombre' => 'required | min:5 | max:400',
             'ap_paterno' => 'required | min:5 | max:400',

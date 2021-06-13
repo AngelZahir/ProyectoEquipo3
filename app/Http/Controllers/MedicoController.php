@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Medico;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreMedicoRequest;
 
 class MedicoController extends Controller
@@ -100,6 +101,10 @@ class MedicoController extends Controller
      */
     public function destroy(Medico $medico)
     {
+        $afected = DB::table('pacientes')
+        ->where('medicoId', $medico->id)
+        ->update(['medicoId' => null]);
+        
         $medico->delete();
         return back()->with('status', 'Medico borrado correctamente');
     }
