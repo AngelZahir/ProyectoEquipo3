@@ -17,8 +17,8 @@ class RecetaController extends Controller
      */
     public function __construct()
     {
-        // $this->paciente = $paciente;
-        // $this->middleware('auth');
+        
+        $this->middleware('auth');
     }
 
     /**
