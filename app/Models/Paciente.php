@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Paciente extends Model implements Auditable
 {
-    use HasFactory, \OwenIt\Auditing\Auditable;
+    use \OwenIt\Auditing\Auditable;
+    use HasFactory;
     protected $fillable = ['medicoId', 'direccionId', 'nombre', 'ap_paterno', 'ap_materno', 'edad'];
 
     public static function resolveId()

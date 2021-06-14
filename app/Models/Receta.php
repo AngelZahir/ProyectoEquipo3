@@ -8,8 +8,8 @@ use OwenIt\Auditing\Contracts\Auditable;
 
 class Receta extends Model implements Auditable
 {
-    use HasFactory, \OwenIt\Auditing\Auditable;
-
+    use \OwenIt\Auditing\Auditable;
+    use HasFactory;
     protected $fillable = ['pacienteId', 'padecimineto', 'medicamento', 'fecha_inicio_tratamiento'];
 
     public static function resolveId()
