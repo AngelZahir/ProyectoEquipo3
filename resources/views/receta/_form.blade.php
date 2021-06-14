@@ -1,4 +1,5 @@
 @csrf
+<h2 class="border-bottom"><small>Datos receta</small></h2>
 <div class="form-group">
     <label for="padecimiento">Padecimiento</label>
     <textarea class="form-control" name="padecimineto" id="padecimineto" rows="3">{{ old('padecimineto', $receta->padecimineto) }}</textarea>
