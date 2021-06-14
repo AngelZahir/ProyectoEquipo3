@@ -8,9 +8,8 @@ use OwenIt\Auditing\Contracts\Auditable;
 
 class Medico extends Model implements Auditable
 {
-    use \OwenIt\Auditing\Auditable;
+    use HasFactory, \OwenIt\Auditing\Auditable;
     
-    use HasFactory;    
     protected $fillable = ['nombre', 'ap_paterno', 'ap_materno', 'cedula'];
     
 

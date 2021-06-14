@@ -32,10 +32,10 @@
                     <td>{{$direccion->created_at->format('d-m-Y')}}</td>
                     <td>{{$direccion->updated_at->format('d-m-Y')}}</td>
                     <td><a href="{{ route('direccion.show', $direccion->id) }}" class="btn btn-primary">Ver</a></td>
-                    <td><a href="{{ route('direccion.edit', $direccion->id) }}" class="btn btn-primary">Editar</a></td>
+                    {{--  <td><a href="{{ route('direccion.edit', $direccion->id) }}" class="btn btn-primary">Editar</a></td>
                     <td>
                       <button data-toggle="modal" data-target="#deleteModal" data-id="{{ $direccion->id }}" class="btn btn-danger" type="submit">Eliminar</button>
-                    </td>
+                    </td>  --}}
                   </tr>
                 @endforeach
             </tbody>
