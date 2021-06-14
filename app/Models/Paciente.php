@@ -8,6 +8,7 @@ use OwenIt\Auditing\Contracts\Auditable;
 
 class Paciente extends Model implements Auditable
 {
+    use \OwenIt\Auditing\Auditable;
     use HasFactory;
     protected $fillable = ['medicoId', 'direccionId', 'nombre', 'ap_paterno', 'ap_materno', 'edad'];
 
