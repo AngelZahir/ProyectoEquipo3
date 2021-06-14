@@ -4,6 +4,7 @@
 
         <form method="post">
             @csrf
+            <h2 class="border-bottom"><small>Datos medico</small></h2>
             <div class="form-group">
                 <label for="nombre">Nombre</label>
                 <input readonly type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" value="{{ $medico->nombre }}">
