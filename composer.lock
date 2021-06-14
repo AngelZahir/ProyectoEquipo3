@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e41c3e52a62a97e2e1e0f4a771e91ed7",
+    "content-hash": "e12e64c73d876d154ab9643684e399fc",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4857,6 +4857,75 @@
                 }
             ],
             "time": "2020-11-12T00:07:28+00:00"
+        },
+        {
+            "name": "wafto/laravel-sepomex",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wafto/laravel-sepomex.git",
+                "reference": "9fea1694836ba0bd99804fbb1755d7f25b17f1c6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wafto/laravel-sepomex/zipball/9fea1694836ba0bd99804fbb1755d7f25b17f1c6",
+                "reference": "9fea1694836ba0bd99804fbb1755d7f25b17f1c6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/console": "^6.0|^7.0|^8.0",
+                "illuminate/contracts": "^6.0|^7.0|^8.0",
+                "illuminate/database": "^6.0|^7.0|^8.0",
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "php": "^8.0|^7.4"
+            },
+            "require-dev": {
+                "barryvdh/laravel-ide-helper": "^2.8|^2.9",
+                "doctrine/dbal": "^2.10|^3.0",
+                "friendsofphp/php-cs-fixer": "^2.18",
+                "mockery/mockery": "^1.4",
+                "orchestra/testbench": "^4.0|^5.0|^6.0",
+                "phpunit/phpunit": "^9.4",
+                "psalm/plugin-laravel": "^1.4",
+                "vimeo/psalm": "^4.6"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Aftab\\Sepomex\\SepomexServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Aftab\\Sepomex\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aftab Hussain Miranda",
+                    "email": "wafto.mx@gmail.com",
+                    "homepage": "https://wafto.dev",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Servicio Postal Mexicano (Sepomex) laravel library",
+            "keywords": [
+                "laravel",
+                "mexico",
+                "sepomex"
+            ],
+            "support": {
+                "issues": "https://github.com/wafto/laravel-sepomex/issues",
+                "source": "https://github.com/wafto/laravel-sepomex"
+            },
+            "time": "2021-03-24T20:14:23+00:00"
         },
         {
             "name": "webmozart/assert",
