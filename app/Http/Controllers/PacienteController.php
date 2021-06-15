@@ -53,12 +53,13 @@ class PacienteController extends Controller
      */
     public function store(StorePaciente $request, StoreDireccion $request2)
     {
-        $direccion = Direccion::create($request2->validated());
         
         $medico = Medico::find($request['medicoId']);
         
         if($medico){
             
+            $direccion = Direccion::create($request2->validated());
+
             if($direccion){
 
                 Paciente::create([
@@ -80,8 +81,6 @@ class PacienteController extends Controller
             }
 
         }else{
-
-            $direccion->delete();
             
             $mensaje = 'ERROR el medico no existe, registralo en la pestaña medicos';
         }
