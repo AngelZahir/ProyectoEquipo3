@@ -2,8 +2,8 @@
 
 @section('content')
 
-<a href="{{route('direccion.create')}}" class="btn btn-success mt-3 mb-3">Agregar direccion</a>
-
+{{-- <a href="{{route('direccion.create')}}" class="btn btn-success mt-3 mb-3">Agregar direccion</a> --}}
+<h2 class="border-bottom"><small>Direcciones</small></h2>
         <table class="table table-hover">
             <thead>
               <tr>
