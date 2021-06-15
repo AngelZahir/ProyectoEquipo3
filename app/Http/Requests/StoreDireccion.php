@@ -24,12 +24,12 @@ class StoreDireccion extends FormRequest
     public function rules()
     {
         return [
-            'calle' => 'required | min:1 | max:100',
-            'colonia' => 'required | min:1 | max:100',
-            'delegacion' => 'required | min:5 | max:100',
-            'codigo_postal' => 'required | min:5 | max:10',
-            'estado' => 'required | min:5 | max:400',
-            'ciudad' => 'required | min:5 | max:400'
+            'calle' => 'required | min:1 | max:20',
+            'colonia' => 'required | min:1 | max:45',
+            'delegacion' => 'required | min:5 | max:20',
+            'codigo_postal' => 'required | min:1 | max:20',
+            'estado' => 'required | min:1 | max:20',
+            'ciudad' => 'required | min:1 | max:20'
         ];
     }
 }

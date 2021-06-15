@@ -26,10 +26,10 @@ class StorePaciente extends FormRequest
         return [
             'medicoId' => '',
             'direccionId' => '',
-            'nombre' => 'required | min:5 | max:400',
-            'ap_paterno' => 'required | min:5 | max:400',
-            'ap_materno' => 'required | min:5 | max:400',
-            'edad' => 'required | min:1 | max:400'
+            'nombre' => 'required | min:1 | max:20',
+            'ap_paterno' => 'required | min:1 | max:20',
+            'ap_materno' => 'required | min:1 | max:20',
+            'edad' => 'required | min:1 | max:5'
         ];
     }
 }
