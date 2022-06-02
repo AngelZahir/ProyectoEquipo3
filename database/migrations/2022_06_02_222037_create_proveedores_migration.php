@@ -13,7 +13,7 @@ class CreateProveedoresMigration extends Migration
      */
     public function up()
     {
-        Schema::create('proveedores_migration', function (Blueprint $table) {
+        Schema::create('proveedores', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateProveedoresMigration extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('proveedores_migration');
+        Schema::dropIfExists('proveedores');
     }
 }

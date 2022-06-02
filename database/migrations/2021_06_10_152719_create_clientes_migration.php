@@ -13,13 +13,14 @@ class CreateMedicosMigration extends Migration
      */
     public function up()
     {
-        Schema::create('medicos', function (Blueprint $table) {
+        Schema::create('clientes', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre',20);
-            $table->string('ap_paterno',20);
-            $table->string('ap_materno',20);
-            $table->string('cedula',45);
-            $table->timestamps();
+            $table->string('razon_social',40);
+            $table->string('tipo_de_persona',40);
+            $table->string('rfc',40);
+            $table->string('domicilio',100);
+            $table->string('email',40);
+            $table->string('telefono',10);
         });
     }
 
@@ -30,6 +31,6 @@ class CreateMedicosMigration extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('medicos');
+        Schema::dropIfExists('clientes');
     }
 }

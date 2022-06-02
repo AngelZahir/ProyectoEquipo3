@@ -13,15 +13,16 @@ class CreateDireccionesMigration extends Migration
      */
     public function up()
     {
-        Schema::create('direcciones', function (Blueprint $table) {
+        Schema::create('proyectos', function (Blueprint $table) {
             $table->id();
-            $table->string('calle',20);
-            $table->string('colonia',45);
-            $table->string('delegacion',20);
-            $table->string('codigo_postal',7);
-            $table->string('estado',20);
-            $table->string('ciudad',20);
-            $table->timestamps();
+            $table->foreign('clienteId')->references('id')->on('clientes');
+            $table->string('nombre',100);
+            $table->date('fecha_inicio');
+            $table->float('subtotal');
+            $table->float('iva');
+            $table->float('total');
+            $table->string('concepto')-> nullable();
+            $table->string('comentarios');
         });
     }
 
@@ -32,6 +33,6 @@ class CreateDireccionesMigration extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('direcciones');
+        Schema::dropIfExists('proyectos');
     }
 }

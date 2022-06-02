@@ -13,8 +13,14 @@ class CreateAnticiposMigration extends Migration
      */
     public function up()
     {
-        Schema::create('anticipos_migration', function (Blueprint $table) {
+        Schema::create('anticipos', function (Blueprint $table) {
             $table->id();
+            $table->foreign('clienteId')->references('id')->on('clientes');
+            $table->foreign('proyectoId')->references('id')->on('proyectos');
+            $table->string('pagos',20);
+            $table->string('',20);
+            $table->string('ap_materno', 20)->nullable();
+            $table->integer('edad');
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ class CreateAnticiposMigration extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('anticipos_migration');
+        Schema::dropIfExists('anticipos');
     }
 }
